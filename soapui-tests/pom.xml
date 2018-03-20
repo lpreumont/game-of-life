@@ -1,0 +1,111 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.wakaleo.gameoflife</groupId>
+		<artifactId>gameoflife</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+	<artifactId>soapui-tests</artifactId>
+	<packaging>pom</packaging>
+	<name>SoapUI Maven</name>
+<!-- ***********************************************************************************
+      Use the "soapui" profile to execute the APS soapui test cases.
+      Examples of Maven call:
+      
+         mvn -Psoapui -Pws.healthcheck "-Dsoapui.host=localhost:8081" verify
+
+         mvn -Psoapui -Pws.fromsiebel "-Dsoapui.scheme=https" "-Dsoapui.host=localhost:8443" verify
+      
+         mvn -Psoapui -Prest.addr "-Dsoapui.host=localhost:8081" verify
+
+     *********************************************************************************** -->
+	<repositories>
+		<repository>
+			<id>SmartBearPluginRepository</id>
+			<name>soapui plugin repo</name>
+			<url>http://www.soapui.org/repository/maven2</url>
+		</repository>
+		<repository>
+			<id>MavenRepository</id>
+			<name>maven repo</name>
+			<url>https://repo.maven.apache.org/maven2</url>
+		</repository>
+	</repositories>
+	<properties>
+		<soapui.version>5.4.0</soapui.version>
+	        <soapui.project.directory>${basedir}/src/main/project</soapui.project.directory>
+	        <soapui.output.directory>${basedir}/target/soapui-output</soapui.output.directory>
+	        <soapui.scheme>http</soapui.scheme>
+	        <soapui.host>localhost:8080</soapui.host>
+	</properties>
+	<profiles>
+		<profile>
+			<id>ws.healthcheck</id>
+			<properties>
+				<soapui.project.file>aps-ws-soapui-project.xml</soapui.project.file>
+				<soapui.testsuite>TestSuite Healthcheck</soapui.testsuite>
+			</properties>
+		</profile>
+		<profile>
+			<id>ws.fromsiebel</id>
+			<properties>
+			        <soapui.project.file>aps-ws-soapui-project.xml</soapui.project.file>
+			        <soapui.testsuite>TestSuite FromSiebel</soapui.testsuite>
+			</properties>
+		</profile>
+		<profile>
+			<id>rest.addr</id>
+			<properties>
+			        <soapui.project.file>aps-rest-soapui-project.xml</soapui.project.file>
+			        <soapui.testsuite>TestSuite Address</soapui.testsuite>
+			</properties>
+		</profile>
+		<profile>
+			<id>rest.auth</id>
+			<properties>
+			        <soapui.project.file>aps-rest-soapui-project.xml</soapui.project.file>
+			        <soapui.testsuite>TestSuite Authentication</soapui.testsuite>
+			</properties>
+		</profile>
+	</profiles>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.smartbear.soapui</groupId>
+				<artifactId>soapui-maven-plugin</artifactId>
+				<version>${soapui.version}</version>
+				<configuration>
+					<projectFile>${soapui.project.directory}/${soapui.project.file}</projectFile>
+					<testSuite>${soapui.testsuite}</testSuite>
+					<projectProperties>
+						<value>WebServiceEndpoint=${soapui.scheme}://${soapui.host}/APSReceiver/APSService</value>
+						<value>RestEndpoint=${soapui.scheme}://${soapui.host}</value>
+					</projectProperties>
+				<!--Where to place the output of the run-->
+					<outputFolder>${soapui.output.directory}</outputFolder>
+				<!--Make the jUnit results file-->
+					<junitReport>true</junitReport>
+					<printReport>true</printReport>
+				</configuration>
+<!--
+	The dependency to com.jgoodies is to overcome a missing class in SoapUI plugin distribution.
+-->
+				<dependencies>
+					<dependency> 
+						<groupId>com.jgoodies</groupId>
+						<artifactId>forms</artifactId>
+						<version>1.0.7</version>
+					</dependency>
+				</dependencies>
+				<executions>
+					<execution>
+						<phase>integration-test</phase>
+						<goals>
+							<goal>test</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

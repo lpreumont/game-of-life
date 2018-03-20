@@ -1,0 +1,2779 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://wadl.dev.java.net/2009/02">
+  <doc xml:lang="en" title="APS Manager REST API">The REST API that can be used to manage the APS configuration.</doc>
+  <resources base="http://localhost:8081/APSReceiver/v1/api">
+    <resource path="addresses" id="/addresses">
+      <doc xml:lang="en" title="/addresses"/>
+      <method name="GET" id="GetSystemAddrs">
+        <doc xml:lang="en" title="GetSystemAddrs">Retrieve a paged array of system addresses</doc>
+        <request>
+          <param name="offset" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="offset Parameter">The 'page' from where to start to get results; Use it together with limit; Page numbering starts with 0</doc>
+          </param>
+          <param name="limit" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="limit Parameter">Page max size, i.e. the maximum number of returned entities; Use it together with offset; Default value is 500</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="POST" id="CreateSystemAddr">
+        <doc xml:lang="en" title="CreateSystemAddr">Add a new system address</doc>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="201">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="addresses/{id}" id="/addresses/{id}">
+      <doc xml:lang="en" title="/addresses/{id}"/>
+      <method name="GET" id="GetSystemAddr">
+        <doc xml:lang="en" title="GetSystemAddr">Retrieve a system address</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">System address id</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="404">
+          <representation mediaType="text/html; charset=ISO-8859-1"/>
+        </response>
+      </method>
+      <method name="PUT" id="UpdateSystemAddr">
+        <doc xml:lang="en" title="UpdateSystemAddr">Update a system address</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">System address id</doc>
+          </param>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="DELETE" id="DeleteSystemAddr">
+        <doc xml:lang="en" title="DeleteSystemAddr">Delete a system address</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">System address id</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="auth/credentials" id="/auth/credentials">
+      <doc xml:lang="en" title="/auth/credentials"/>
+      <method name="GET" id="GetCredentialsList">
+        <doc xml:lang="en" title="GetCredentialsList">Retrieve a paged array of APS credentials</doc>
+        <request>
+          <param name="offset" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="offset Parameter">The 'page' from where to start to get results; Use it together with limit; Page numbering starts with 0</doc>
+          </param>
+          <param name="limit" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="limit Parameter">Page max size, i.e. the maximum number of returned entities; Use it together with offset; Default value is 500</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="POST" id="CreateCredentials">
+        <doc xml:lang="en" title="CreateCredentials">Add a new APS credentials</doc>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="201">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="auth/credentials/{id}" id="/auth/credentials/{id}">
+      <doc xml:lang="en" title="/auth/credentials/{id}"/>
+      <method name="GET" id="GetCredentials">
+        <doc xml:lang="en" title="GetCredentials">Retrieve an APS credentials</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">The credentials id</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="PUT" id="UpdateCredentials">
+        <doc xml:lang="en" title="UpdateCredentials">Update an APS credentials</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">The credentials id</doc>
+          </param>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="DELETE" id="DeleteCredentials">
+        <doc xml:lang="en" title="DeleteCredentials">Delete an APS credentials</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">the credentials id</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="auth/functions" id="/auth/functions">
+      <doc xml:lang="en" title="/auth/functions"/>
+      <method name="GET" id="GetFunctions">
+        <doc xml:lang="en" title="GetFunctions">Retrieve a paged array of APS functions</doc>
+        <request>
+          <param name="name" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="name Parameter">Return only APS functions matching the specified name expression; '%' mechanism can be used, e.g. '%Get' or 'External%'</doc>
+          </param>
+          <param name="offset" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="offset Parameter">The 'page' from where to start to get results; Use it together with limit; Page numbering starts with 0</doc>
+          </param>
+          <param name="limit" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="limit Parameter">Page max size, i.e. the maximum number of returned entities; Use it together with offset; Default value is 500</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="POST" id="CreateFunction">
+        <doc xml:lang="en" title="CreateFunction">Add a new APS function</doc>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="201">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="auth/functions/{id}" id="/auth/functions/{id}">
+      <doc xml:lang="en" title="/auth/functions/{id}"/>
+      <method name="GET" id="GetFunction">
+        <doc xml:lang="en" title="GetFunction">Retrieve an APS function</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">The function id (could be a name)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="PUT" id="UpdateFunction">
+        <doc xml:lang="en" title="UpdateFunction">Update an APS function</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">The function id (could be a name)</doc>
+          </param>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="DELETE" id="DeleteFunction">
+        <doc xml:lang="en" title="DeleteFunction">Delete an APS function</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">The function id (could be a name)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="auth/functions/{id}/roles" id="/auth/functions/{id}/roles">
+      <doc xml:lang="en" title="/auth/functions/{id}/roles"/>
+      <method name="GET" id="GetFunctionRoles">
+        <doc xml:lang="en" title="GetFunctionRoles">Retrieve APS roles including a given APS function</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">The function id (could be a name)</doc>
+          </param>
+          <param name="offset" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="offset Parameter">The 'page' from where to start to get results; Use it together with limit; Page numbering starts with 0</doc>
+          </param>
+          <param name="limit" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="limit Parameter">Page max size, i.e. the maximum number of returned entities; Use it together with offset; Default value is 500</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="auth/functions/{id}/users" id="/auth/functions/{id}/users">
+      <doc xml:lang="en" title="/auth/functions/{id}/users"/>
+      <method name="GET" id="GetFunctionUsers">
+        <doc xml:lang="en" title="GetFunctionUsers">Retrieve APS users allowed to execute a given APS function</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">The function id (could be a name)</doc>
+          </param>
+          <param name="offset" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="offset Parameter">The 'page' from where to start to get results; Use it together with limit; Page numbering starts with 0</doc>
+          </param>
+          <param name="limit" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="limit Parameter">Page max size, i.e. the maximum number of returned entities; Use it together with offset; Default value is 500</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="auth/roles" id="/auth/roles">
+      <doc xml:lang="en" title="/auth/roles"/>
+      <method name="GET" id="GetRoles">
+        <doc xml:lang="en" title="GetRoles">Retrieve a paged array of APS roles</doc>
+        <request>
+          <param name="offset" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="offset Parameter">The 'page' from where to start to get results; Use it together with limit; Page numbering starts with 0</doc>
+          </param>
+          <param name="limit" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="limit Parameter">Page max size, i.e. the maximum number of returned entities; Use it together with offset; Default value is 500</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="POST" id="CreateRole">
+        <doc xml:lang="en" title="CreateRole">Add a new APS role</doc>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="201">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="auth/roles/{id}" id="/auth/roles/{id}">
+      <doc xml:lang="en" title="/auth/roles/{id}"/>
+      <method name="GET" id="GetRole">
+        <doc xml:lang="en" title="GetRole">Retrieve an APS role</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">APS rode id (could be a name)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="PUT" id="UpdateRole">
+        <doc xml:lang="en" title="UpdateRole">Update an APS role</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">APS role id (could be a name)</doc>
+          </param>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="DELETE" id="DeleteRole">
+        <doc xml:lang="en" title="DeleteRole">Delete an APS role</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">APS role id (could be a name)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="auth/roles/{id}/users" id="/auth/roles/{id}/users">
+      <doc xml:lang="en" title="/auth/roles/{id}/users"/>
+      <method name="GET" id="GetRoleUsers">
+        <doc xml:lang="en" title="GetRoleUsers">Retrieve APS users having a given APS role</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">The role id (could be a name)</doc>
+          </param>
+          <param name="offset" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="offset Parameter">The 'page' from where to start to get results; Use it together with limit; Page numbering starts with 0</doc>
+          </param>
+          <param name="limit" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="limit Parameter">Page max size, i.e. the maximum number of returned entities; Use it together with offset; Default value is 500</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="auth/roles/{roleId}/functions" id="/auth/roles/{roleId}/functions">
+      <doc xml:lang="en" title="/auth/roles/{roleId}/functions"/>
+      <method name="GET" id="GetRoleFunctions">
+        <doc xml:lang="en" title="GetRoleFunctions">Retrieve APS functions allowed for a given APS role</doc>
+        <request>
+          <param name="roleId" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="roleId Parameter">The role id (could be a name)</doc>
+          </param>
+          <param name="offset" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="offset Parameter">The 'page' from where to start to get results; Use it together with limit; Page numbering starts with 0</doc>
+          </param>
+          <param name="limit" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="limit Parameter">Page max size, i.e. the maximum number of returned entities; Use it together with offset; Default value is 500</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="POST" id="AddRoleFunction">
+        <doc xml:lang="en" title="AddRoleFunction">Add a function in the allowed set for a given APS role</doc>
+        <request>
+          <param name="roleId" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="roleId Parameter">The role id  (could be a name)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="auth/roles/{roleId}/functions/{functionId}" id="/auth/roles/{roleId}/functions/{functionId}">
+      <doc xml:lang="en" title="/auth/roles/{roleId}/functions/{functionId}"/>
+      <method name="DELETE" id="DeleteRoleFunctions">
+        <doc xml:lang="en" title="DeleteRoleFunctions">Delete a function from the allowed set for a given APS role</doc>
+        <request>
+          <param name="roleId" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="roleId Parameter">The role id (could be a name)</doc>
+          </param>
+          <param name="functionId" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="functionId Parameter">The to-be-deleted function id</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="auth/users" id="/auth/users">
+      <doc xml:lang="en" title="/auth/users"/>
+      <method name="GET" id="GetUsers">
+        <doc xml:lang="en" title="GetUsers">Retrieve a paged array of APS users</doc>
+        <request>
+          <param name="credentials" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="credentials Parameter">Return all the users having a matching UsernamePassword credentials; '%' mechanism can be used too. Ex: 'Adm%'</doc>
+          </param>
+          <param name="offset" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="offset Parameter">The 'page' from where to start to get results; Use it together with limit; Page numbering starts with 0</doc>
+          </param>
+          <param name="limit" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="limit Parameter">Page max size, i.e. the maximum number of returned entities; Use it together with offset; Default value is 500</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="POST" id="CreateUser">
+        <doc xml:lang="en" title="CreateUser">Add a new APS user</doc>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="201">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="auth/users/{id}" id="/auth/users/{id}">
+      <doc xml:lang="en" title="/auth/users/{id}"/>
+      <method name="GET" id="GetUser">
+        <doc xml:lang="en" title="GetUser">Retrieve an APS user</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">The user id (could be a name)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="PUT" id="UpdateUser">
+        <doc xml:lang="en" title="UpdateUser">Update an APS user</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">The user id (could be a name)</doc>
+          </param>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="DELETE" id="DeleteUser">
+        <doc xml:lang="en" title="DeleteUser">Delete an APS user</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">the user id (could be a name)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="auth/users/{id}/functions" id="/auth/users/{id}/functions">
+      <doc xml:lang="en" title="/auth/users/{id}/functions"/>
+      <method name="GET" id="GetUserFunctions">
+        <doc xml:lang="en" title="GetUserFunctions">Retrieve functions allowed for a given APS user</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">The user id (could be a name)</doc>
+          </param>
+          <param name="offset" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="offset Parameter">The 'page' from where to start to get results; Use it together with limit; Page numbering starts with 0</doc>
+          </param>
+          <param name="limit" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="limit Parameter">Page max size, i.e. the maximum number of returned entities; Use it together with offset; Default value is 500</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="auth/users/{userId}/credentials" id="/auth/users/{userId}/credentials">
+      <doc xml:lang="en" title="/auth/users/{userId}/credentials"/>
+      <method name="GET" id="GetUserCredentials">
+        <doc xml:lang="en" title="GetUserCredentials">Retrieve credentials assigned to a given APS user</doc>
+        <request>
+          <param name="userId" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="userId Parameter">The user id (could be a name)</doc>
+          </param>
+          <param name="offset" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="offset Parameter">The 'page' from where to start to get results; Use it together with limit; Page numbering starts with 0</doc>
+          </param>
+          <param name="limit" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="limit Parameter">Page max size, i.e. the maximum number of returned entities; Use it together with offset; Default value is 500</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="auth/users/{userId}/roles" id="/auth/users/{userId}/roles">
+      <doc xml:lang="en" title="/auth/users/{userId}/roles"/>
+      <method name="GET" id="GetUserRoles">
+        <doc xml:lang="en" title="GetUserRoles">Retrieve roles assigned to a given APS user</doc>
+        <request>
+          <param name="userId" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="userId Parameter">The user id (could be a name)</doc>
+          </param>
+          <param name="offset" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="offset Parameter">The 'page' from where to start to get results; Use it together with limit; Page numbering starts with 0</doc>
+          </param>
+          <param name="limit" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="limit Parameter">Page max size, i.e. the maximum number of returned entities; Use it together with offset; Default value is 500</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="POST" id="AddUserRole">
+        <doc xml:lang="en" title="AddUserRole">Assign an APS role to a given APS user</doc>
+        <request>
+          <param name="userId" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="userId Parameter">The user id (could be a name)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="auth/users/{userId}/roles/{roleId}" id="/auth/users/{userId}/roles/{roleId}">
+      <doc xml:lang="en" title="/auth/users/{userId}/roles/{roleId}"/>
+      <method name="DELETE" id="DeleteUserRole">
+        <doc xml:lang="en" title="DeleteUserRole">Unassign an APS role from a given APS user</doc>
+        <request>
+          <param name="userId" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="userId Parameter">The user id (could be a name)</doc>
+          </param>
+          <param name="roleId" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="roleId Parameter">The role id  (could be a name)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="components" id="/components">
+      <doc xml:lang="en" title="/components"/>
+      <method name="GET" id="GetComponents">
+        <doc xml:lang="en" title="GetComponents">Retrieve a paged array of APS components.</doc>
+        <request>
+          <param name="offset" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="offset Parameter">The 'page' from where to start to get results; Use it together with limit; Page numbering starts with 0</doc>
+          </param>
+          <param name="limit" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="limit Parameter">Page max size, i.e. the maximum number of returned entities; Use it together with offset; Default value is 500</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="components/{id}" id="/components/{id}">
+      <doc xml:lang="en" title="/components/{id}"/>
+      <method name="GET" id="GetComponent">
+        <doc xml:lang="en" title="GetComponent">Retrieve an APS component</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">APS component id (could be a code)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="components/{id}/execute" id="/components/{id}/execute">
+      <doc xml:lang="en" title="/components/{id}/execute"/>
+      <method name="PUT" id="ExecuteEngine">
+        <doc xml:lang="en" title="ExecuteEngine">Create an event to execute a given engine in the given APS node</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">APS engine id (could be the code)</doc>
+          </param>
+          <param name="node" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="node Parameter">Code of the node that will execute the engine</doc>
+          </param>
+          <param name="msgid" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="msgid Parameter">Id of the message to process during the execution</doc>
+          </param>
+          <param name="businessmsgid" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="businessmsgid Parameter">Business Id of the message to process during the execution</doc>
+          </param>
+          <param name="msgcat" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="msgcat Parameter">Category (code) of the messages to process during the execution</doc>
+          </param>
+          <param name="fromSys" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="fromSys Parameter">System (code) that sent the messages to process during the execution</doc>
+          </param>
+          <param name="toSys" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="toSys Parameter">Target system (code) of the messages to process during the execution</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="components/{id}/inactivate" id="/components/{id}/inactivate">
+      <doc xml:lang="en" title="/components/{id}/inactivate"/>
+      <method name="PUT" id="InactivateComponent">
+        <doc xml:lang="en" title="InactivateComponent">Inactivate an APS engine. The status of the engine will be changed in the dababase.</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">APS component id (could be the code)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="components/{id}/reactivate" id="/components/{id}/reactivate">
+      <doc xml:lang="en" title="/components/{id}/reactivate"/>
+      <method name="PUT" id="ReactivateComponent">
+        <doc xml:lang="en" title="ReactivateComponent">Reactivate an APS engine. The status of the engine will be changed in the dababase.</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">APS component id (could be the code)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="components/{id}/reinit" id="/components/{id}/reinit">
+      <doc xml:lang="en" title="/components/{id}/reinit"/>
+      <method name="PUT" id="ReinitComponent">
+        <doc xml:lang="en" title="ReinitComponent">Reinitialize the in-memory properties of a given component in the given APS node</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">APS component id (could be the code)</doc>
+          </param>
+          <param name="node" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="node Parameter">Code of the node that will re-init the component. If not set, the re-init will occur on the current node. The ALL value means that every 'active' node will re-init the APS component.</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="components/{id}/restart" id="/components/{id}/restart">
+      <doc xml:lang="en" title="/components/{id}/restart"/>
+      <method name="PUT" id="RestartComponent">
+        <doc xml:lang="en" title="RestartComponent">Unblock future executions of a given component in the given APS node</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">APS component id (could be the code)</doc>
+          </param>
+          <param name="node" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="node Parameter">Code of the node that will unblock future executions. If not set, the execution will be unblock on the current node. The ALL value means that every 'active' node will unblock the APS component.</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="components/{id}/stop" id="/components/{id}/stop">
+      <doc xml:lang="en" title="/components/{id}/stop"/>
+      <method name="PUT" id="StopComponent">
+        <doc xml:lang="en" title="StopComponent">Stop the execution of a given component and block future executions in the given APS node</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">APS component id (could be the code)</doc>
+          </param>
+          <param name="node" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="node Parameter">Code of the node that will stop the execution. If not set, the execution will stopped on the current node. The ALL value means that every 'active' node will stop the APS component.</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="keystores" id="/keystores">
+      <doc xml:lang="en" title="/keystores"/>
+      <method name="GET" id="GetKeystores">
+        <doc xml:lang="en" title="GetKeystores">Retrieve a paged array of keystores</doc>
+        <request>
+          <param name="offset" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="offset Parameter">The 'page' from where to start to get results; Use it together with limit; Page numbering starts with 0</doc>
+          </param>
+          <param name="limit" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="limit Parameter">Page max size, i.e. the maximum number of returned entities; Use it together with offset; Default value is 500</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="POST" id="CreateKeystore">
+        <doc xml:lang="en" title="CreateKeystore">Add a new keystore</doc>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="201">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="keystores/{id}" id="/keystores/{id}">
+      <doc xml:lang="en" title="/keystores/{id}"/>
+      <method name="GET" id="GetKeystore">
+        <doc xml:lang="en" title="GetKeystore">Retrieve a keystore</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">Keystore id (could be a code)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="PUT" id="UpdateKeystore">
+        <doc xml:lang="en" title="UpdateKeystore">Update a keystore</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">Keystore id (could be a code)</doc>
+          </param>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="DELETE" id="DeleteKeystore">
+        <doc xml:lang="en" title="DeleteKeystore">Delete a keystore</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">Keystore id (could be a code)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="mappeddatasets" id="/mappeddatasets">
+      <doc xml:lang="en" title="/mappeddatasets"/>
+      <method name="GET" id="GetMapDataSets">
+        <doc xml:lang="en" title="GetMapDataSets">Retrieve a paged array of mapped data sets</doc>
+        <request>
+          <param name="offset" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="offset Parameter">The 'page' from where to start to get results; Use it together with limit; Page numbering starts with 0</doc>
+          </param>
+          <param name="limit" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="limit Parameter">Page max size, i.e. the maximum number of returned entities; Use it together with offset; Default value is 500</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="POST" id="CreateMapDataSet">
+        <doc xml:lang="en" title="CreateMapDataSet">Add a new mapped data set</doc>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="201">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="mappeddatasets/elements" id="/mappeddatasets/elements">
+      <doc xml:lang="en" title="/mappeddatasets/elements"/>
+      <method name="POST" id="CreateMapDataSetElem">
+        <doc xml:lang="en" title="CreateMapDataSetElem">Add a new mapped data set element</doc>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="mappeddatasets/elements/{elemId}" id="/mappeddatasets/elements/{elemId}">
+      <doc xml:lang="en" title="/mappeddatasets/elements/{elemId}"/>
+      <method name="GET" id="GetMapDataSetElem">
+        <doc xml:lang="en" title="GetMapDataSetElem">Retrieve a mapped data set element</doc>
+        <request>
+          <param name="elemId" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="elemId Parameter">The mapped data set element id</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="PUT" id="UpdateMapDataSetElem">
+        <doc xml:lang="en" title="UpdateMapDataSetElem">Update a given mapped data set element</doc>
+        <request>
+          <param name="elemId" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="elemId Parameter">The mapped data set element id</doc>
+          </param>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="DELETE" id="DeleteMapDataSetElem">
+        <doc xml:lang="en" title="DeleteMapDataSetElem">Delete a given mapped data set element</doc>
+        <request>
+          <param name="elemId" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="elemId Parameter">The mapped data set element id</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="mappeddatasets/{id}" id="/mappeddatasets/{id}">
+      <doc xml:lang="en" title="/mappeddatasets/{id}"/>
+      <method name="GET" id="GetMapDataSet">
+        <doc xml:lang="en" title="GetMapDataSet">Retrieve a mapped data set</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">The mapped data set id (could be a code)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="PUT" id="UpdateMapDataSet">
+        <doc xml:lang="en" title="UpdateMapDataSet">Update a given mapped data set</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">The mapped data set id</doc>
+          </param>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="DELETE" id="DeleteMapDataSet">
+        <doc xml:lang="en" title="DeleteMapDataSet">Delete a given mapped data set</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">The mapped data set id (could be a code)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="mappeddatasets/{id}/elements" id="/mappeddatasets/{id}/elements">
+      <doc xml:lang="en" title="/mappeddatasets/{id}/elements"/>
+      <method name="GET" id="GetMapDataSetElems">
+        <doc xml:lang="en" title="GetMapDataSetElems">Retrieve all the elements of a given mapped data set</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">The mapped data set id (could be a code)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="msgcategories" id="/msgcategories">
+      <doc xml:lang="en" title="/msgcategories"/>
+      <method name="GET" id="GetMsgCats">
+        <doc xml:lang="en" title="GetMsgCats">Retrieve a paged array of message categories</doc>
+        <request>
+          <param name="offset" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="offset Parameter">The 'page' from where to start to get results; Use it together with limit; Page numbering starts with 0</doc>
+          </param>
+          <param name="limit" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="limit Parameter">Page max size, i.e. the maximum number of returned entities; Use it together with offset; Default value is 500</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="POST" id="CreateMsgCat">
+        <doc xml:lang="en" title="CreateMsgCat">Add a new message category</doc>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="201">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="msgcategories/{id}" id="/msgcategories/{id}">
+      <doc xml:lang="en" title="/msgcategories/{id}"/>
+      <method name="GET" id="GetMsgCat">
+        <doc xml:lang="en" title="GetMsgCat">Retrieve a message category</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">Message category id (could be a code)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="PUT" id="UpdateMsgCat">
+        <doc xml:lang="en" title="UpdateMsgCat">Update a message category</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">Message category id (could be a code)</doc>
+          </param>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="DELETE" id="DeleteMsgCat">
+        <doc xml:lang="en" title="DeleteMsgCat">Delete a message category</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">Message category id (could be a code)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="msgtypes" id="/msgtypes">
+      <doc xml:lang="en" title="/msgtypes"/>
+      <method name="GET" id="GetMsgTypes">
+        <doc xml:lang="en" title="GetMsgTypes">Retrieve a paged array of message types</doc>
+        <request>
+          <param name="code" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="code Parameter">Return the message type having the specified code (MsgCat-FromSys-ToSys)</doc>
+          </param>
+          <param name="msgCat" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="msgCat Parameter">Return only message types for the specified message category id</doc>
+          </param>
+          <param name="fromSys" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="fromSys Parameter">Return only message types sent by the specified system id</doc>
+          </param>
+          <param name="toSys" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="toSys Parameter">Return only message types setn to the specified system id</doc>
+          </param>
+          <param name="offset" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="offset Parameter">The 'page' from where to start to get results; Use it together with limit; Page numbering starts with 0</doc>
+          </param>
+          <param name="limit" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="limit Parameter">Page max size, i.e. the maximum number of returned entities; Use it together with offset; Default value is 500</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="POST" id="CreateMsgType">
+        <doc xml:lang="en" title="CreateMsgType">Add a new message type</doc>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="201">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="msgtypes/{id}" id="/msgtypes/{id}">
+      <doc xml:lang="en" title="/msgtypes/{id}"/>
+      <method name="GET" id="GetMsgType">
+        <doc xml:lang="en" title="GetMsgType">Retrieve a message type</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">Message type id (could be a code like this MsgCat-FromSys-ToSys)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="PUT" id="UpdateMsgType">
+        <doc xml:lang="en" title="UpdateMsgType">Update a message type</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">Message type id (could be a code like this MsgCat-FromSys-ToSys)</doc>
+          </param>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="DELETE" id="DeleteMsgType">
+        <doc xml:lang="en" title="DeleteMsgType">Delete a message type</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">Message type id (could be a code like this MsgCat-FromSys-ToSys)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="msgtypes/{id}/inactivate" id="/msgtypes/{id}/inactivate">
+      <doc xml:lang="en" title="/msgtypes/{id}/inactivate"/>
+      <method name="PUT" id="InactivateMsgType">
+        <doc xml:lang="en" title="InactivateMsgType">Inactivate a message type</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">Message type id (could be a code like this MsgCat-FromSys-ToSys)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="msgtypes/{id}/reactivate" id="/msgtypes/{id}/reactivate">
+      <doc xml:lang="en" title="/msgtypes/{id}/reactivate"/>
+      <method name="PUT" id="ReactivateMsgType">
+        <doc xml:lang="en" title="ReactivateMsgType">Reactivate a message type</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">Message type id (could be a code like this MsgCat-FromSys-ToSys)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="nodes" id="/nodes">
+      <doc xml:lang="en" title="/nodes"/>
+      <method name="GET" id="GetNodes">
+        <doc xml:lang="en" title="GetNodes">Retrieve a paged array of APS nodes.</doc>
+        <request>
+          <param name="offset" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="offset Parameter">The 'page' from where to start to get results; Use it together with limit; Page numbering starts with 0</doc>
+          </param>
+          <param name="limit" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="limit Parameter">Page max size, i.e. the maximum number of returned entities; Use it together with offset; Default value is 500</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="POST" id="AddNode">
+        <doc xml:lang="en" title="AddNode">Add a new APS node</doc>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="201">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="nodes/clearcaches" id="/nodes/clearcaches">
+      <doc xml:lang="en" title="/nodes/clearcaches"/>
+      <method name="PUT" id="ClearCaches">
+        <doc xml:lang="en" title="ClearCaches">Clear caches on the specified APS node(s)</doc>
+        <request>
+          <param name="node" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="node Parameter">Code of the node that will clear the caches. If not set, the caches will be cleared on the current node. The ALL value means that every 'active' node will clear the caches.</doc>
+          </param>
+          <param name="caches" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="caches Parameter">Comma separated list of cache names to be cleared. If not specified all the caches will be cleared. ALL means that all chaches will be cleared.</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="nodes/healthcheck" id="/nodes/healthcheck">
+      <doc xml:lang="en" title="/nodes/healthcheck"/>
+      <method name="GET" id="HealthCheck">
+        <doc xml:lang="en" title="HealthCheck">Retrieve health check data of the current APS node</doc>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="nodes/{id}" id="/nodes/{id}">
+      <doc xml:lang="en" title="/nodes/{id}"/>
+      <method name="GET" id="GetNode">
+        <doc xml:lang="en" title="GetNode">Retrieve an APS node</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">APS node id (could be a code)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="PUT" id="UpdateNode">
+        <doc xml:lang="en" title="UpdateNode">Update an APS node</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">APS node id (could be a code)</doc>
+          </param>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="properties" id="/properties">
+      <doc xml:lang="en" title="/properties"/>
+      <method name="GET" id="GetProperties">
+        <doc xml:lang="en" title="GetProperties">Retrieve a paged array of APS properties</doc>
+        <request>
+          <param name="name" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="name Parameter">Return only APS properties matching the specified name expression; '%' mechanism can be used, e.g. 'Web%'</doc>
+          </param>
+          <param name="node" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="node Parameter">Return only APS properties relevant for the specified APS node id; 'ANY' means properties relevant for all nodes and for specific nodes. When not present, return only the properties relevant for all nodes</doc>
+          </param>
+          <param name="component" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="component Parameter">Return only APS properties relevant for the specified APS component id; 'ANY' means properties relevant for all components and for specific components. When not present, return only the properties relevant for all components</doc>
+          </param>
+          <param name="offset" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="offset Parameter">The 'page' from where to start to get results; Use it together with limit; Page numbering starts with 0</doc>
+          </param>
+          <param name="limit" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="limit Parameter">Page max size, i.e. the maximum number of returned entities; Use it together with offset; Default value is 500</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="POST" id="CreateProperty">
+        <doc xml:lang="en" title="CreateProperty">Add a new APS property</doc>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="201">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="properties/{id}" id="/properties/{id}">
+      <doc xml:lang="en" title="/properties/{id}"/>
+      <method name="GET" id="GetProperty">
+        <doc xml:lang="en" title="GetProperty">Retrieve an APS property</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">APS property id</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="PUT" id="UpdateProperty">
+        <doc xml:lang="en" title="UpdateProperty">Update an APS property</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">APS property id</doc>
+          </param>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="DELETE" id="DeleteProperty">
+        <doc xml:lang="en" title="DeleteProperty">Delete an APS property</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">APS property id</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="senders" id="/senders">
+      <doc xml:lang="en" title="/senders"/>
+      <method name="GET" id="GetSystemSenders">
+        <doc xml:lang="en" title="GetSystemSenders">Retrieve a paged array of system senders</doc>
+        <request>
+          <param name="sendertype" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="sendertype Parameter">Return only senders allowed for the specified sender type id (could be a code)</doc>
+          </param>
+          <param name="system" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="system Parameter">Return only senders allowed for the specified system id (could be a code)</doc>
+          </param>
+          <param name="offset" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="offset Parameter">The 'page' from where to start to get results; Use it together with limit; Page numbering starts with 0</doc>
+          </param>
+          <param name="limit" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="limit Parameter">Page max size, i.e. the maximum number of returned entities; Use it together with offset; Default value is 500</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="POST" id="CreateSystemSender">
+        <doc xml:lang="en" title="CreateSystemSender">Add a new system sender</doc>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="201">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="senders/{id}" id="/senders/{id}">
+      <doc xml:lang="en" title="/senders/{id}"/>
+      <method name="GET" id="GetSystemSender">
+        <doc xml:lang="en" title="GetSystemSender">Retrieve a system sender</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">System sender id (could be a name)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="DELETE" id="DeleteSystemSender">
+        <doc xml:lang="en" title="DeleteSystemSender">Delete a system sender</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">System sender id (could be a name)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="senders/{senderId}/credentials" id="/senders/{senderId}/credentials">
+      <doc xml:lang="en" title="/senders/{senderId}/credentials"/>
+      <method name="GET" id="GetSystemSenderCredentials">
+        <doc xml:lang="en" title="GetSystemSenderCredentials">Retrieve credentials assigned to a given system sender</doc>
+        <request>
+          <param name="senderId" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="senderId Parameter">The sender id (could be a name)</doc>
+          </param>
+          <param name="offset" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="offset Parameter">The 'page' from where to start to get results; Use it together with limit; Page numbering starts with 0</doc>
+          </param>
+          <param name="limit" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="limit Parameter">Page max size, i.e. the maximum number of returned entities; Use it together with offset; Default value is 500</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="senders/{senderId}/sendertypes" id="/senders/{senderId}/sendertypes">
+      <doc xml:lang="en" title="/senders/{senderId}/sendertypes"/>
+      <method name="GET" id="GetSystemSenderSenderTypes">
+        <doc xml:lang="en" title="GetSystemSenderSenderTypes">Retrieve sender types that can be used for messages sent by a given system (sender)</doc>
+        <request>
+          <param name="senderId" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="senderId Parameter">The sender id (could be a name)</doc>
+          </param>
+          <param name="offset" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="offset Parameter">The 'page' from where to start to get results; Use it together with limit; Page numbering starts with 0</doc>
+          </param>
+          <param name="limit" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="limit Parameter">Page max size, i.e. the maximum number of returned entities; Use it together with offset; Default value is 500</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="POST" id="AddSystemSenderSenderType">
+        <doc xml:lang="en" title="AddSystemSenderSenderType">Add a sender type in the allowed set for a given external system sender</doc>
+        <request>
+          <param name="senderId" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="senderId Parameter">The sender id (could be a name)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="senders/{senderId}/sendertypes/{senderTypeId}" id="/senders/{senderId}/sendertypes/{senderTypeId}">
+      <doc xml:lang="en" title="/senders/{senderId}/sendertypes/{senderTypeId}"/>
+      <method name="DELETE" id="DeleteSystemSenderSenderType">
+        <doc xml:lang="en" title="DeleteSystemSenderSenderType">Delete a sender type from the allowed set for a given external system sender</doc>
+        <request>
+          <param name="senderId" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="senderId Parameter">The sender id (could be a name)</doc>
+          </param>
+          <param name="senderTypeId" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="senderTypeId Parameter">The to-be-deleted sender type id (could be a code)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="sendertypes" id="/sendertypes">
+      <doc xml:lang="en" title="/sendertypes"/>
+      <method name="GET" id="GetSenderTypes">
+        <doc xml:lang="en" title="GetSenderTypes">Retrieve a paged array of sender types</doc>
+        <request>
+          <param name="offset" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="offset Parameter">The 'page' from where to start to get results; Use it together with limit; Page numbering starts with 0</doc>
+          </param>
+          <param name="limit" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="limit Parameter">Page max size, i.e. the maximum number of returned entities; Use it together with offset; Default value is 500</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="POST" id="CreateSenderType">
+        <doc xml:lang="en" title="CreateSenderType">Add a new sender type</doc>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="201">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="sendertypes/{id}" id="/sendertypes/{id}">
+      <doc xml:lang="en" title="/sendertypes/{id}"/>
+      <method name="GET" id="GetSenderType">
+        <doc xml:lang="en" title="GetSenderType">Retrieve a sender type</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">Sender type id (could be a code)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="PUT" id="UpdateSenderType">
+        <doc xml:lang="en" title="UpdateSenderType">Update a sender type</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">Sender type id (could be a code)</doc>
+          </param>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="DELETE" id="DeleteSenderType">
+        <doc xml:lang="en" title="DeleteSenderType">Delete a sender type</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">Sender type id (could be a code)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="signers" id="/signers">
+      <doc xml:lang="en" title="/signers"/>
+      <method name="GET" id="GetExternalSigners">
+        <doc xml:lang="en" title="GetExternalSigners">Retrieve a paged array of external signers</doc>
+        <request>
+          <param name="msgtype" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="msgtype Parameter">Return only signers allowed for the specified message type id (could be a code)</doc>
+          </param>
+          <param name="system" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="system Parameter">Return only signers allowed for the specified system id (could be a code)</doc>
+          </param>
+          <param name="offset" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="offset Parameter">The 'page' from where to start to get results; Use it together with limit; Page numbering starts with 0</doc>
+          </param>
+          <param name="limit" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="limit Parameter">Page max size, i.e. the maximum number of returned entities; Use it together with offset; Default value is 500</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="POST" id="CreateExternalSigner">
+        <doc xml:lang="en" title="CreateExternalSigner">Add a new external signer</doc>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="201">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="signers/{id}" id="/signers/{id}">
+      <doc xml:lang="en" title="/signers/{id}"/>
+      <method name="GET" id="GetExternalSigner">
+        <doc xml:lang="en" title="GetExternalSigner">Retrieve an external signer</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">External signer id (could a name)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="DELETE" id="DeleteExternalSigner">
+        <doc xml:lang="en" title="DeleteExternalSigner">Delete an external signer</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">External signer id (could be a name)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="signers/{signerId}/credentials" id="/signers/{signerId}/credentials">
+      <doc xml:lang="en" title="/signers/{signerId}/credentials"/>
+      <method name="GET" id="GetExternalSignerCred">
+        <doc xml:lang="en" title="GetExternalSignerCred">Retrieve credentials assigned to a given external signer</doc>
+        <request>
+          <param name="signerId" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="signerId Parameter">The signer id (could be a name)</doc>
+          </param>
+          <param name="offset" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="offset Parameter">The 'page' from where to start to get results; Use it together with limit; Page numbering starts with 0</doc>
+          </param>
+          <param name="limit" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="limit Parameter">The 'page' from where to start to get results; Use it together with limit; Page numbering starts with 0</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="signers/{signerId}/msgtypes" id="/signers/{signerId}/msgtypes">
+      <doc xml:lang="en" title="/signers/{signerId}/msgtypes"/>
+      <method name="GET" id="CreateExternalSignerMsgTypes">
+        <doc xml:lang="en" title="CreateExternalSignerMsgTypes">Retrieve message types that can be (signed and) sent by a given external signer</doc>
+        <request>
+          <param name="signerId" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="signerId Parameter">The signer id (could be a name)</doc>
+          </param>
+          <param name="offset" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="offset Parameter">The 'page' from where to start to get results; Use it together with limit; Page numbering starts with 0</doc>
+          </param>
+          <param name="limit" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="limit Parameter">Page max size, i.e. the maximum number of returned entities; Use it together with offset; Default value is 500</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="POST" id="AddExternalSignerMsgType">
+        <doc xml:lang="en" title="AddExternalSignerMsgType">Add a message type in the allowed set for a given external system signer</doc>
+        <request>
+          <param name="signerId" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="signerId Parameter">The signer id (could be a name)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="signers/{signerId}/msgtypes/{msgTypeId}" id="/signers/{signerId}/msgtypes/{msgTypeId}">
+      <doc xml:lang="en" title="/signers/{signerId}/msgtypes/{msgTypeId}"/>
+      <method name="DELETE" id="DeleteExternalSignerMsgType">
+        <doc xml:lang="en" title="DeleteExternalSignerMsgType">Delete a message type from the allowed set for a given external system signer</doc>
+        <request>
+          <param name="signerId" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="signerId Parameter">The signer id (could be a name)</doc>
+          </param>
+          <param name="msgTypeId" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="msgTypeId Parameter">The to-be-deleted message type id (could be a code)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="signertypes" id="/signertypes">
+      <doc xml:lang="en" title="/signertypes"/>
+      <method name="GET" id="GetSignerTypes">
+        <doc xml:lang="en" title="GetSignerTypes">Retrieve a paged array of signer types</doc>
+        <request>
+          <param name="offset" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="offset Parameter">The 'page' from where to start to get results; Use it together with limit; Page numbering starts with 0</doc>
+          </param>
+          <param name="limit" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="limit Parameter">Page max size, i.e. the maximum number of returned entities; Use it together with offset; Default value is 500</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="POST" id="CreateSignerType">
+        <doc xml:lang="en" title="CreateSignerType">Add a new signer type</doc>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="201">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="signertypes/{id}" id="/signertypes/{id}">
+      <doc xml:lang="en" title="/signertypes/{id}"/>
+      <method name="GET" id="GetSignerType">
+        <doc xml:lang="en" title="GetSignerType">Retrieve a signer type</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">Signer type id (could be a code)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="PUT" id="UpdateSignerType">
+        <doc xml:lang="en" title="UpdateSignerType">Update a signer type</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">Signer type id (could be a code)</doc>
+          </param>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="DELETE" id="DeleteSignerType">
+        <doc xml:lang="en" title="DeleteSignerType">Delete a signer type</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">Signer type id (could be a code)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="systems" id="/systems">
+      <doc xml:lang="en" title="/systems"/>
+      <method name="GET" id="GetExternalSystems">
+        <doc xml:lang="en" title="GetExternalSystems">Retrieve a paged array of external systems</doc>
+        <request>
+          <param name="banks" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="banks Parameter">Return only the bank systems (true) or the none bank systems (false)</doc>
+          </param>
+          <param name="offset" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="offset Parameter">The 'page' from where to start to get results; Use it together with limit; Page numbering starts with 0</doc>
+          </param>
+          <param name="limit" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="limit Parameter">Page max size, i.e. the maximum number of returned entities; Use it together with offset; Default value is 500</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="POST" id="CreateExternalSystem">
+        <doc xml:lang="en" title="CreateExternalSystem">Add a new external system</doc>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="201">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="systems/{id}" id="/systems/{id}">
+      <doc xml:lang="en" title="/systems/{id}"/>
+      <method name="GET" id="GetExternalSystem">
+        <doc xml:lang="en" title="GetExternalSystem">Retrieve an external system</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">External system id (could by a code)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="PUT" id="UpdateExternalSystem">
+        <doc xml:lang="en" title="UpdateExternalSystem">Update an external system</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">External system id (could be a code)</doc>
+          </param>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="DELETE" id="DeleteExternalSystem">
+        <doc xml:lang="en" title="DeleteExternalSystem">Delete an external system</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">External system id (could be a code)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="systems/{id}/addresses" id="/systems/{id}/addresses">
+      <doc xml:lang="en" title="/systems/{id}/addresses"/>
+      <method name="GET" id="GetExternalSystemAddrs">
+        <doc xml:lang="en" title="GetExternalSystemAddrs">Retrieve addresses of a given external system</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">External system id</doc>
+          </param>
+          <param name="offset" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="offset Parameter">The 'page' from where to start to get results; Use it together with limit; Page numbering starts with 0</doc>
+          </param>
+          <param name="limit" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="limit Parameter">Page max size, i.e. the maximum number of returned entities; Use it together with offset; Default value is 500</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="systems/{id}/receivedmsg" id="/systems/{id}/receivedmsg">
+      <doc xml:lang="en" title="/systems/{id}/receivedmsg"/>
+      <method name="GET" id="GetExternalSystemReceivedMsgTypes">
+        <doc xml:lang="en" title="GetExternalSystemReceivedMsgTypes">Retrieve the message types that could be received by a given external system</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">External system id (could be a code</doc>
+          </param>
+          <param name="offset" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="offset Parameter">The 'page' from where to start to get results; Use it together with limit; Page numbering starts with 0</doc>
+          </param>
+          <param name="limit" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="limit Parameter">Page max size, i.e. the maximum number of returned entities; Use it together with offset; Default value is 500</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="systems/{id}/senders" id="/systems/{id}/senders">
+      <doc xml:lang="en" title="/systems/{id}/senders"/>
+      <method name="GET" id="GetExternalSystemSenders">
+        <doc xml:lang="en" title="GetExternalSystemSenders">Retrieve senders allowed for a given external system</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">External system id</doc>
+          </param>
+          <param name="offset" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="offset Parameter">The 'page' from where to start to get results; Use it together with limit; Page numbering starts with 0</doc>
+          </param>
+          <param name="limit" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="limit Parameter">Page max size, i.e. the maximum number of returned entities; Use it together with offset; Default value is 500</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="systems/{id}/sentmsg" id="/systems/{id}/sentmsg">
+      <doc xml:lang="en" title="/systems/{id}/sentmsg"/>
+      <method name="GET" id="GetExternalSystemSentMsgTypes">
+        <doc xml:lang="en" title="GetExternalSystemSentMsgTypes">Retrieve the message types that could be sent by a given external system</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">External system id (could be a code)</doc>
+          </param>
+          <param name="offset" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="offset Parameter">The 'page' from where to start to get results; Use it together with limit; Page numbering starts with 0</doc>
+          </param>
+          <param name="limit" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="limit Parameter">Page max size, i.e. the maximum number of returned entities; Use it together with offset; Default value is 500</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="systems/{id}/signers" id="/systems/{id}/signers">
+      <doc xml:lang="en" title="/systems/{id}/signers"/>
+      <method name="GET" id="GetExternalSystemSigners">
+        <doc xml:lang="en" title="GetExternalSystemSigners">Retrieve signers allowed for a given external system</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">External system id</doc>
+          </param>
+          <param name="offset" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="offset Parameter">The 'page' from where to start to get results; Use it together with limit; Page numbering starts with 0</doc>
+          </param>
+          <param name="limit" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="limit Parameter">Page max size, i.e. the maximum number of returned entities; Use it together with offset; Default value is 500</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="transtypes" id="/transtypes">
+      <doc xml:lang="en" title="/transtypes"/>
+      <method name="GET" id="GetTransformerTypes">
+        <doc xml:lang="en" title="GetTransformerTypes">Retrieve a paged array of transformer types</doc>
+        <request>
+          <param name="offset" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="offset Parameter">The 'page' from where to start to get results; Use it together with limit; Page numbering starts with 0</doc>
+          </param>
+          <param name="limit" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="limit Parameter">Page max size, i.e. the maximum number of returned entities; Use it together with offset; Default value is 500</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="POST" id="CreateTransformerType">
+        <doc xml:lang="en" title="CreateTransformerType">Add a new transformer type</doc>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="201">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="transtypes/{id}" id="/transtypes/{id}">
+      <doc xml:lang="en" title="/transtypes/{id}"/>
+      <method name="GET" id="GetTransformerType">
+        <doc xml:lang="en" title="GetTransformerType">Retrieve a transformer type</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">Transformer type id (could be a code)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="PUT" id="UpdateTransformerType">
+        <doc xml:lang="en" title="UpdateTransformerType">Update a transformer type</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">Transformer type id (could be a code)</doc>
+          </param>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="DELETE" id="DeleteTransformerType">
+        <doc xml:lang="en" title="DeleteTransformerType">Delete a transformer type</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">Transformer type id (could be a code)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="workflowtypes" id="/workflowtypes">
+      <doc xml:lang="en" title="/workflowtypes"/>
+      <method name="GET" id="GetWorkflowTypes">
+        <doc xml:lang="en" title="GetWorkflowTypes">Retrieve a paged array of workflow types</doc>
+        <request>
+          <param name="offset" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="offset Parameter">The 'page' from where to start to get results; Use it together with limit; Page numbering starts with 0</doc>
+          </param>
+          <param name="limit" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="limit Parameter">Page max size, i.e. the maximum number of returned entities; Use it together with offset; Default value is 500</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="POST" id="CreateWorkflowType">
+        <doc xml:lang="en" title="CreateWorkflowType">Add a new workflow type</doc>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="201">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="workflowtypes/steps" id="/workflowtypes/steps">
+      <doc xml:lang="en" title="/workflowtypes/steps"/>
+      <method name="POST" id="CreateWorkflowStep">
+        <doc xml:lang="en" title="CreateWorkflowStep">Add a new workflow step</doc>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="workflowtypes/steps/{stepId}" id="/workflowtypes/steps/{stepId}">
+      <doc xml:lang="en" title="/workflowtypes/steps/{stepId}"/>
+      <method name="GET" id="GetWorkflowStep">
+        <doc xml:lang="en" title="GetWorkflowStep">Retrieve a step data from a workflow type</doc>
+        <request>
+          <param name="stepId" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="stepId Parameter">The workflow step id</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="DELETE" id="DeleteWorkflowStep">
+        <doc xml:lang="en" title="DeleteWorkflowStep">Delete a step from a given workflow type</doc>
+        <request>
+          <param name="stepId" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="stepId Parameter">The workflow step id</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="workflowtypes/{id}" id="/workflowtypes/{id}">
+      <doc xml:lang="en" title="/workflowtypes/{id}"/>
+      <method name="GET" id="GetWorkflowType">
+        <doc xml:lang="en" title="GetWorkflowType">Retrieve a workflow type</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">The workflow type id (could be a code)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="workflowtypes/{id}/steps" id="/workflowtypes/{id}/steps">
+      <doc xml:lang="en" title="/workflowtypes/{id}/steps"/>
+      <method name="GET" id="GetWorkflowSteps">
+        <doc xml:lang="en" title="GetWorkflowSteps">Retrieve all the steps of a workflow type</doc>
+        <request>
+          <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="id Parameter">The workflow type id (could be a code)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="workflowtypes/{typeId}" id="/workflowtypes/{typeId}">
+      <doc xml:lang="en" title="/workflowtypes/{typeId}"/>
+      <method name="DELETE" id="DeleteWorkflowType">
+        <doc xml:lang="en" title="DeleteWorkflowType">Delete a given workflow type</doc>
+        <request>
+          <param name="typeId" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="typeId Parameter">The workflow type id (could be a code)</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+  </resources>
+</application>

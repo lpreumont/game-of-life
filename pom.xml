@@ -206,21 +206,26 @@
         </dependency>
     </dependencies>
 
-    <modules>
-        <module>gameoflife-build</module>
-        <module>gameoflife-core</module>
-        <module>gameoflife-web</module>
-    </modules>
     <profiles>
         <profile>
             <id>development</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
+    <modules>
+        <module>gameoflife-build</module>
+        <module>gameoflife-core</module>
+        <module>gameoflife-web</module>
+    </modules>
 
         </profile>
         <profile>
             <id>metrics</id>
+    <modules>
+        <module>gameoflife-build</module>
+        <module>gameoflife-core</module>
+        <module>gameoflife-web</module>
+    </modules>
             <build>
                 <plugins>
                     <!-- CHECKSTYLE -->
@@ -273,7 +278,12 @@
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
-            <build>
+     <modules>
+        <module>gameoflife-build</module>
+        <module>gameoflife-core</module>
+        <module>gameoflife-web</module>
+    </modules>
+           <build>
                 <plugins>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
@@ -383,6 +393,11 @@
         </profile>
         <profile>
             <id>maven2</id>
+    <modules>
+        <module>gameoflife-build</module>
+        <module>gameoflife-core</module>
+        <module>gameoflife-web</module>
+    </modules>
             <build>
                 <plugins>
                     <plugin>
@@ -494,5 +509,11 @@
                 </plugins>
             </reporting>
         </profile>
+		<profile>
+			<id>soapui</id>
+			<modules>
+				<module>soapui-tests</module>
+			</modules>
+		</profile>
     </profiles>
 </project>

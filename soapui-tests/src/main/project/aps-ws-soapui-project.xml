@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="c731a400-f804-4aed-8d9c-b11c2dbd5337" activeEnvironment="Default" name="APS-WebService" resourceRoot="" soapui-version="5.4.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.TestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Report Format(s)" value=""/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="Export JUnit Results" value="false"/>
+  <con:entry key="Export All" value="false"/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="TestSuite" value="TestSuite FromSiebel"/>
+  <con:entry key="Endpoint" value=""/>
+  <con:entry key="Select Report Type" value=""/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="Print Report" value="true"/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="Export JUnit Results with test properties" value="false"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="TestCase" value="&lt;all>"/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="user-settings.xml Password" value=""/>
+  <con:entry key="TestRunner Path" value="C:\Program Files (x86)\SmartBear\SoapUI-5.4.0\bin"/>
+  <con:entry key="Environment" value="Default"/>
+  <con:entry key="Coverage Report" value="false"/>
+  <con:entry key="Enable UI" value="true"/>
+  <con:entry key="Root Folder" value=""/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Save Project" value="false"/>
+</xml-fragment>]]></con:setting>
+  </con:settings>
+  <con:interface xsi:type="con:WsdlInterface" id="faba1ec8-c120-4b43-97c0-52c1a5142113" wsaVersion="NONE" name="IPSServicePortBinding" type="wsdl" bindingName="{http://www.isabel.be/IpsService}IPSServicePortBinding" soapVersion="1_1" anonymous="optional" definition="${#Project#WebServiceEndpoint}?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:settings/>
+    <con:definitionCache type="TEXT" rootPart="http://localhost:8081/APSReceiver/APSService?wsdl">
+      <con:part>
+        <con:url>http://localhost:8081/APSReceiver/APSService?wsdl</con:url>
+        <con:content><![CDATA[<wsdl:definitions name="IPSService" targetNamespace="http://www.isabel.be/IpsService" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.isabel.be/IpsService" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ipsxsd="http://www.isabel.be/IpsWSDef">
+  <wsdl:types>
+    <xsd:schema>
+      <xsd:import namespace="http://www.isabel.be/IpsWSDef" schemaLocation="http://localhost:8081/APSReceiver/APSService?xsd=IPSWSDef.xsd"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="Response">
+    <wsdl:part element="ipsxsd:Report" name="param"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Request">
+    <wsdl:part element="ipsxsd:Message" name="param"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="IPSServicePortType">
+    <wsdl:operation name="WebService">
+      <wsdl:input message="tns:Request"></wsdl:input>
+      <wsdl:output message="tns:Response"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="IPSServicePortBinding" type="tns:IPSServicePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="WebService">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="IPSService">
+    <wsdl:port binding="tns:IPSServicePortBinding" name="IPSServicePort">
+      <soap:address location="http://localhost:8081/APSReceiver/APSService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content>
+        <con:type>http://schemas.xmlsoap.org/wsdl/</con:type>
+      </con:part>
+      <con:part>
+        <con:url>http://localhost:8081/APSReceiver/APSService?xsd=IPSWSDef.xsd</con:url>
+        <con:content><![CDATA[<!--edited with XMLSpy v2015 rel. 3 sp1 (x64) (http://www.altova.com) by euroclear c/o isabel (euroclear c/o isabel)-->
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.isabel.be/IpsWSDef" version="V2.1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.isabel.be/IpsWSDef">
+  <xsd:element name="Message" type="MessageType"/>
+  <xsd:complexType name="MessageType">
+    <xsd:sequence>
+      <xsd:element name="MsgType" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>A code representing the type of the message. For instance, the code CreatEBCont could be used for a message requiring the creation of a new eBanking contract.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="MsgId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>The Id of the message from the message sender point of view. This Id will be returned in the delivery and/or execution report messages. This Id is not needed for messages treated in a synchronous way.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="OrigMsgId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>The Id of the original message. This element is only relevant when the current message is an answer (e.g. an asynchrone execution report) to another message. For instance this element must be present for a NOTRPC message.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="FromSystem" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>A code representing the system that sent the message. For instance, the code SIEBEL could be used for messages sent by the Siebel system.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="ToSystem" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>A code representing the (target) system that will receive the message. For instance, the code EPS could be used for messages sent to the eBanking Provisioning System.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="DeliverRptFlag" type="OneCharType">
+        <xsd:annotation>
+          <xsd:documentation>A one-character-long flag indicating if the sender expects a delivery report. The value Y (or 'y') means that a delivery report is expected.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="ExecRptFlag" type="OneCharType">
+        <xsd:annotation>
+          <xsd:documentation>A one-character-long flag indicating if the sender expects an execution report. The value Y (or 'y') means that an execution report is expected.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="TstFlag" type="OneCharType">
+        <xsd:annotation>
+          <xsd:documentation>A one-character-long flag indicating if the sender expects a "real execution" of its message or if it sends the  message for test only. The value Y (or 'y') means that the message is sent for test only. The absence of this element means that the message is NOT for test only.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element default="5" minOccurs="0" name="Priority">
+        <xsd:annotation>
+          <xsd:documentation>A (integer) code representing the priority of the message. A small value means a high priority. The default priority is represented by the code 5.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:integer">
+            <xsd:minInclusive value="0"/>
+            <xsd:maxInclusive value="9"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <!--The xsd:choice construct is not supported by Siebel. 
+			<xsd:choice>
+				<xsd:element name="MsgBodyNew" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>The (XML) body of the message in a character string format.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="MsgBodyBinary" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>The (XML) body of the message in an array of bytes format.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:choice>-->
+      <xsd:element minOccurs="0" name="MsgBodyNew" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>The body of the message in a character string format. Either this element must be present or one of the two following elements must be present.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="MsgBodyNewPath" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>The path of a file containing the body of the message. Either this element must be present or the previous one must be present or the next one must be present.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="MsgBodyBinary" type="xsd:hexBinary">
+        <xsd:annotation>
+          <xsd:documentation>The body of the message in an array of bytes format. Either this element mus\
+t be present or one of the two previous elements must be present.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="MsgBodyOld" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>An old version of the body. This optional body will be needed when APS must generate an XML Delta. This will thus be needed for "Update" messages. If this element is present the next one must not.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="MsgBodyOldPath" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>The path of a file containing an old version of the body. This optional body will be needed when APS must generate an XML Delta. This will thus be needed for "Update" messages. If this element is present the previous one must not.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="Report" type="ReportType"/>
+  <xsd:complexType name="ReportType">
+    <xsd:sequence>
+      <xsd:element name="RetCode" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>A return code saying how the Web-Service handled the request. For instance, the value 0 could be used to say that the Web-Service correctly handled the request.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="RprtBody" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>The (XML) body of the report. This body could (not mandatory) include the Id of the original message.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="OneCharType">
+    <xsd:restriction base="xsd:string">
+      <xsd:length value="1"/>
+      <xsd:enumeration value="Y"/>
+      <xsd:enumeration value="y"/>
+      <xsd:enumeration value="N"/>
+      <xsd:enumeration value="n"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>]]></con:content>
+        <con:type>http://www.w3.org/2001/XMLSchema</con:type>
+      </con:part>
+    </con:definitionCache>
+    <con:endpoints>
+      <con:endpoint>${#Project#WebServiceEndpoint}</con:endpoint>
+    </con:endpoints>
+    <con:operation id="3dcc3f23-5523-45fe-8f02-5eb6aebd67b7" isOneWay="false" action="" name="WebService" bindingOperationName="WebService" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional">
+      <con:settings/>
+      <con:call id="26f71e4e-6c8d-49f3-9b04-54fdcf4c28f3" name="TEST" outgoingWss="" incomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@encode_attachments">false</con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>${#Project#WebServiceEndpoint}</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ips="http://www.isabel.be/IpsWSDef">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ips:Message>
+         <ips:MsgType>TEST</ips:MsgType>
+         <ips:MsgId>TST_33</ips:MsgId>-->
+         <!--<ips:OrigMsgId>?</ips:OrigMsgId>-->
+         <ips:FromSystem>APS</ips:FromSystem>
+         <ips:ToSystem>APS</ips:ToSystem>
+         <ips:DeliverRptFlag>N</ips:DeliverRptFlag>
+         <ips:ExecRptFlag>N</ips:ExecRptFlag>
+         <ips:TstFlag>Y</ips:TstFlag>
+         <ips:Priority>5</ips:Priority>
+         <ips:MsgBodyNew><![CDATA[<?xml version="1.0" encoding="UTF-8"?><Test>Petit test</Test>]]]]>><![CDATA[</ips:MsgBodyNew>
+         <!--<ips:MsgBodyNewPath>?</ips:MsgBodyNewPath>-->
+         <!--<ips:MsgBodyBinary>cid:350111700666</ips:MsgBodyBinary>-->
+         <!--<ips:MsgBodyOld>?</ips:MsgBodyOld>-->
+         <!--<ips:MsgBodyOldPath>?</ips:MsgBodyOldPath>-->
+      </ips:Message>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:username xsi:nil="true"/>
+          <con:password xsi:nil="true"/>
+          <con:domain xsi:nil="true"/>
+          <con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+          <con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+          <con:authType>Global HTTP Settings</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.isabel.be/IpsService/IPSServicePortType/WebServiceRequest"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:call>
+      <con:call id="689a85e2-5334-463c-8321-185fab4710a0" name="PROAPI01" outgoingWss="" incomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>${#Project#WebServiceEndpoint}</con:endpoint>
+        <con:request><![CDATA[<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+	<soap:Body>
+		<Message xmlns="http://www.isabel.be/IpsWSDef">
+			<MsgType>PROAPI01</MsgType>
+			<!--<MsgId>PROAPI_2881041</MsgId>-->
+			<FromSystem>SIEBEL</FromSystem>
+			<ToSystem>ISAAM</ToSystem>
+			<DeliverRptFlag>N</DeliverRptFlag>
+			<ExecRptFlag>N</ExecRptFlag>
+			<TstFlag>N</TstFlag>
+			<Priority>1</Priority>
+			<MsgBodyNew>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48P1NpZWJlbC1Qcm9wZXJ0eS1TZXQgRXNjYXBlTmFtZXM9ImZhbHNlIj8+DQo8U3luY1BLSVVzZXI+DQogPFBLSVVzZXJJRD4xMjM0NTY3ODkwMTIzPC9QS0lVc2VySUQ+DQogPExhc3ROYW1lPmxhc3QgbmFtZTwvTGFzdE5hbWU+DQogPEZpcnN0TmFtZT5mbjwvRmlyc3ROYW1lPg0KIDxTdWJzY3JpYmluZ0VudGl0eU5hbWU+c2VuPC9TdWJzY3JpYmluZ0VudGl0eU5hbWU+DQogPEVtYWlsPjwvRW1haWw+DQogPE1vYmlsZT48L01vYmlsZT4NCiA8TGFuZ3VhZ2U+ZnI8L0xhbmd1YWdlPg0KIDxVc2VyVHlwZT4xPC9Vc2VyVHlwZT4NCiA8SXNQYXJ0bmVyVXNlcj5OPC9Jc1BhcnRuZXJVc2VyPg0KIDxVc2VyU3RhdHVzPjI8L1VzZXJTdGF0dXM+DQogPEFjdGl2YXRpb25EYXRlPjEyLzAzLzIwMTcgMjE6MzM6NTQ8L0FjdGl2YXRpb25EYXRlPg0KIDxBdXRoVHlwZUlzYWJlbFNtYXJ0Q2FyZD5ZPC9BdXRoVHlwZUlzYWJlbFNtYXJ0Q2FyZD4NCiA8UGFydG5lclVzZXJQcm9maWxlPjE8L1BhcnRuZXJVc2VyUHJvZmlsZT4NCiA8TGlzdE9mUGFydG5lckFkbWluRnVuY3Rpb25UeXBlPg0KICAgPFBhcnRuZXJBZG1pbkZ1bmN0aW9uVHlwZT4NCiAgICAgPE5hbWU+ZnVuYzE8L05hbWU+DQogICAgIDxBY2Nlc3NGbGFnPlk8L0FjY2Vzc0ZsYWc+DQogICA8L1BhcnRuZXJBZG1pbkZ1bmN0aW9uVHlwZT4NCiAgIDxQYXJ0bmVyQWRtaW5GdW5jdGlvblR5cGU+DQogICAgIDxOYW1lPmZ1bmMyPC9OYW1lPg0KICAgICA8QWNjZXNzRmxhZz5OPC9BY2Nlc3NGbGFnPg0KICAgPC9QYXJ0bmVyQWRtaW5GdW5jdGlvblR5cGU+DQogICA8UGFydG5lckFkbWluRnVuY3Rpb25UeXBlPg0KICAgICA8TmFtZT5mdW5jMzwvTmFtZT4NCiAgICAgPEFjY2Vzc0ZsYWc+WTwvQWNjZXNzRmxhZz4NCiAgIDwvUGFydG5lckFkbWluRnVuY3Rpb25UeXBlPg0KIDwvTGlzdE9mUGFydG5lckFkbWluRnVuY3Rpb25UeXBlPg0KIDxQS0lDb250cmFjdFR5cGVOYW1lPlBLSUBJTkc8L1BLSUNvbnRyYWN0VHlwZU5hbWU+DQogPExpc3RPZlBLSUNvbnRyYWN0VHlwZT4NCiAgIDxQS0lDb250cmFjdFR5cGU+DQogICAgIDxOYW1lPnBjdDwvTmFtZT4NCiAgICAgPEFkbWluRmxhZz5OPC9BZG1pbkZsYWc+DQogICA8L1BLSUNvbnRyYWN0VHlwZT4NCiA8L0xpc3RPZlBLSUNvbnRyYWN0VHlwZT4NCiA8TW9kdWxlc1ZhbGlkYXRlZENMRmxhZz5OPC9Nb2R1bGVzVmFsaWRhdGVkQ0xGbGFnPg0KPC9TeW5jUEtJVXNlcj4=</MsgBodyNew>
+      	</Message>
+   	</soap:Body>
+</soap:Envelope>]]></con:request>
+        <con:credentials>
+          <con:username xsi:nil="true"/>
+          <con:password xsi:nil="true"/>
+          <con:domain xsi:nil="true"/>
+          <con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+          <con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+          <con:authType>Global HTTP Settings</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.isabel.be/IpsService/IPSServicePortType/WebServiceRequest"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:call>
+    </con:operation>
+  </con:interface>
+  <con:testSuite id="78d05ace-bbb4-4d49-9672-5bbb2a7620ff" name="TestSuite FromSiebel">
+    <con:settings/>
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:testCase id="784b9c37-79d7-41c2-8bc3-7e3485e7fd8d" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Proapi-Isaam" searchProperties="true">
+      <con:settings/>
+      <con:testStep type="request" id="77254959-628e-4c43-84ec-6bfb77d566cf" name="WebService - PROAPI01">
+        <con:settings/>
+        <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:interface>IPSServicePortBinding</con:interface>
+          <con:operation>WebService</con:operation>
+          <con:request name="WebService - PROAPI01" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" id="479f881b-6d40-46b4-96bc-57940852e592">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Authorization" value="Basic YWRtaW46YWRtaW4=" xmlns="http://eviware.com/soapui/config"/></con:setting>
+            </con:settings>
+            <con:encoding>UTF-8</con:encoding>
+            <con:endpoint>${#Project#WebServiceEndpoint}</con:endpoint>
+            <con:request><![CDATA[<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+	<soap:Body>
+		<Message xmlns="http://www.isabel.be/IpsWSDef">
+			<MsgType>PROAPI01</MsgType>
+			<!--<MsgId>PROAPI_2881041</MsgId>-->
+			<FromSystem>SIEBEL</FromSystem>
+			<ToSystem>ISAAM</ToSystem>
+			<DeliverRptFlag>N</DeliverRptFlag>
+			<ExecRptFlag>N</ExecRptFlag>
+			<TstFlag>N</TstFlag>
+			<Priority>1</Priority>
+			<MsgBodyNew>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48P1NpZWJlbC1Qcm9wZXJ0eS1TZXQgRXNjYXBlTmFtZXM9ImZhbHNlIj8+DQo8U3luY1BLSVVzZXI+DQogPFBLSVVzZXJJRD4xMjM0NTY3ODkwMTIzPC9QS0lVc2VySUQ+DQogPExhc3ROYW1lPmxhc3QgbmFtZTwvTGFzdE5hbWU+DQogPEZpcnN0TmFtZT5mbjwvRmlyc3ROYW1lPg0KIDxTdWJzY3JpYmluZ0VudGl0eU5hbWU+c2VuPC9TdWJzY3JpYmluZ0VudGl0eU5hbWU+DQogPEVtYWlsPjwvRW1haWw+DQogPE1vYmlsZT48L01vYmlsZT4NCiA8TGFuZ3VhZ2U+ZnI8L0xhbmd1YWdlPg0KIDxVc2VyVHlwZT4xPC9Vc2VyVHlwZT4NCiA8SXNQYXJ0bmVyVXNlcj5OPC9Jc1BhcnRuZXJVc2VyPg0KIDxVc2VyU3RhdHVzPjI8L1VzZXJTdGF0dXM+DQogPEFjdGl2YXRpb25EYXRlPjEyLzAzLzIwMTcgMjE6MzM6NTQ8L0FjdGl2YXRpb25EYXRlPg0KIDxBdXRoVHlwZUlzYWJlbFNtYXJ0Q2FyZD5ZPC9BdXRoVHlwZUlzYWJlbFNtYXJ0Q2FyZD4NCiA8UGFydG5lclVzZXJQcm9maWxlPjE8L1BhcnRuZXJVc2VyUHJvZmlsZT4NCiA8TGlzdE9mUGFydG5lckFkbWluRnVuY3Rpb25UeXBlPg0KICAgPFBhcnRuZXJBZG1pbkZ1bmN0aW9uVHlwZT4NCiAgICAgPE5hbWU+ZnVuYzE8L05hbWU+DQogICAgIDxBY2Nlc3NGbGFnPlk8L0FjY2Vzc0ZsYWc+DQogICA8L1BhcnRuZXJBZG1pbkZ1bmN0aW9uVHlwZT4NCiAgIDxQYXJ0bmVyQWRtaW5GdW5jdGlvblR5cGU+DQogICAgIDxOYW1lPmZ1bmMyPC9OYW1lPg0KICAgICA8QWNjZXNzRmxhZz5OPC9BY2Nlc3NGbGFnPg0KICAgPC9QYXJ0bmVyQWRtaW5GdW5jdGlvblR5cGU+DQogICA8UGFydG5lckFkbWluRnVuY3Rpb25UeXBlPg0KICAgICA8TmFtZT5mdW5jMzwvTmFtZT4NCiAgICAgPEFjY2Vzc0ZsYWc+WTwvQWNjZXNzRmxhZz4NCiAgIDwvUGFydG5lckFkbWluRnVuY3Rpb25UeXBlPg0KIDwvTGlzdE9mUGFydG5lckFkbWluRnVuY3Rpb25UeXBlPg0KIDxQS0lDb250cmFjdFR5cGVOYW1lPlBLSUBJTkc8L1BLSUNvbnRyYWN0VHlwZU5hbWU+DQogPExpc3RPZlBLSUNvbnRyYWN0VHlwZT4NCiAgIDxQS0lDb250cmFjdFR5cGU+DQogICAgIDxOYW1lPnBjdDwvTmFtZT4NCiAgICAgPEFkbWluRmxhZz5OPC9BZG1pbkZsYWc+DQogICA8L1BLSUNvbnRyYWN0VHlwZT4NCiA8L0xpc3RPZlBLSUNvbnRyYWN0VHlwZT4NCiA8TW9kdWxlc1ZhbGlkYXRlZENMRmxhZz5OPC9Nb2R1bGVzVmFsaWRhdGVkQ0xGbGFnPg0KPC9TeW5jUEtJVXNlcj4=</MsgBodyNew>
+      	</Message>
+   	</soap:Body>
+</soap:Envelope>]]></con:request>
+            <con:assertion type="SOAP Response" id="70aef26a-68e9-4a78-9ed7-7f6952d646bd" name="SOAP Response"/>
+            <con:assertion type="Schema Compliance" id="40351726-17e1-493e-880d-de11e4d186ef" name="Schema Compliance">
+              <con:configuration/>
+            </con:assertion>
+            <con:assertion type="SOAP Fault Assertion" id="478dbdbf-38a9-4903-9f4a-45806a72ee74" name="Not SOAP Fault"/>
+            <con:assertion type="Valid HTTP Status Codes" id="1008c2d5-9d30-4d4b-a18e-d3c0bafeb884" name="Valid HTTP Status Codes">
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" id="e80f7a56-fa53-499e-8a96-0878dd9fe674" name="XPath Match">
+              <con:configuration>
+                <path>declare namespace ns='http://www.isabel.be/IpsWSDef';
+//ns:Report/ns:RetCode</path>
+                <content>400</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:username xsi:nil="true"/>
+              <con:password xsi:nil="true"/>
+              <con:domain xsi:nil="true"/>
+              <con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+              <con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.isabel.be/IpsService/IPSServicePortType/WebServiceRequest"/>
+            <con:wsrmConfig version="1.2"/>
+          </con:request>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+    </con:testCase>
+    <con:properties/>
+  </con:testSuite>
+  <con:testSuite id="2e57c7ab-958d-43a4-9a45-fccc158e7ce2" name="TestSuite Healthcheck">
+    <con:settings/>
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:testCase id="2bddc3c5-7bfa-45a3-9633-0357c72b450e" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Healthcheck" searchProperties="true">
+      <con:settings/>
+      <con:testStep type="request" id="f4a18871-9533-4b6f-81a6-fd1d25ca2d64" name="WebService - TEST">
+        <con:settings/>
+        <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:interface>IPSServicePortBinding</con:interface>
+          <con:operation>WebService</con:operation>
+          <con:request name="WebService - TEST" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" id="1ae34c0e-af54-40ce-b56a-39a1943f0dda">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:encoding>UTF-8</con:encoding>
+            <con:endpoint>${#Project#WebServiceEndpoint}</con:endpoint>
+            <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ips="http://www.isabel.be/IpsWSDef">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ips:Message>
+         <ips:MsgType>TEST</ips:MsgType>
+         <ips:MsgId>TST_33</ips:MsgId>-->
+         <!--<ips:OrigMsgId>?</ips:OrigMsgId>-->
+         <ips:FromSystem>APS</ips:FromSystem>
+         <ips:ToSystem>APS</ips:ToSystem>
+         <ips:DeliverRptFlag>N</ips:DeliverRptFlag>
+         <ips:ExecRptFlag>N</ips:ExecRptFlag>
+         <ips:TstFlag>Y</ips:TstFlag>
+         <ips:Priority>5</ips:Priority>
+         <ips:MsgBodyNew>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;Test&gt;Petit test&gt;/Test&gt;</ips:MsgBodyNew>
+         <!--<ips:MsgBodyNewPath>?</ips:MsgBodyNewPath>-->
+         <!--<ips:MsgBodyBinary>cid:350111700666</ips:MsgBodyBinary>-->
+         <!--<ips:MsgBodyOld>?</ips:MsgBodyOld>-->
+         <!--<ips:MsgBodyOldPath>?</ips:MsgBodyOldPath>-->
+      </ips:Message>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+            <con:assertion type="SOAP Response" id="687d47ef-e4bf-4e88-9183-2ae74bf64f69" name="SOAP Response"/>
+            <con:assertion type="Schema Compliance" id="427ef4d5-dc6e-4df1-aea9-072449492dc0" name="Schema Compliance">
+              <con:configuration/>
+            </con:assertion>
+            <con:assertion type="SOAP Fault Assertion" id="db742160-69e9-4d0e-a9dd-27c9b7c69317" name="Not SOAP Fault"/>
+            <con:assertion type="Valid HTTP Status Codes" id="31e747e1-acc0-48c0-bd5b-7b7a5eb67a63" name="Valid HTTP Status Codes">
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Simple Contains" id="77232407-e77c-4889-986f-d88199fcacdd" name="Contains">
+              <con:configuration>
+                <token>IPS-CP00404</token>
+                <ignoreCase>false</ignoreCase>
+                <useRegEx>false</useRegEx>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:username xsi:nil="true"/>
+              <con:password xsi:nil="true"/>
+              <con:domain xsi:nil="true"/>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.isabel.be/IpsService/IPSServicePortType/WebServiceRequest"/>
+            <con:wsrmConfig version="1.2"/>
+          </con:request>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+    </con:testCase>
+    <con:properties/>
+  </con:testSuite>
+  <con:properties>
+    <con:property>
+      <con:name>WebServiceEndpoint</con:name>
+      <con:value>http://localhost:8081/APSReceiver/APSService</con:value>
+    </con:property>
+  </con:properties>
+  <con:wssContainer/>
+  <con:oAuth2ProfileContainer/>
+  <con:oAuth1ProfileContainer/>
+  <con:sensitiveInformation/>
+</con:soapui-project>
